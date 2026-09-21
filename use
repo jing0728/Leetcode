@@ -1,0 +1,39 @@
+字典 dict 常用方法
+pythonmap = {"a": 1, "b": 2}
+
+map.keys()          # 所有键
+map.values()        # 所有值
+map.items()         # 所有键值对
+map.get("a", 0)     # 取值，找不到返回默认值 0
+"a" in map          # 判断键存不存在 → True
+del map["a"]        # 删除某个键
+map.pop("b")        # 删除并返回该值 → 2
+
+列表 list 常用方法
+pythonnums = [3, 1, 2]
+
+nums.append(4)      # 末尾加一个 → [3,1,2,4]
+nums.pop()          # 删掉末尾  → 返回 4
+nums.pop(0)         # 删掉指定位置 → 返回 3
+nums.sort()         # 从小到大排序 → [1,2,3]
+nums.reverse()      # 反转 → [3,2,1]
+len(nums)           # 长度 → 3
+3 in nums           # 判断存不存在 → True
+
+字符串 str 常用方法
+pythons = "Hello World"
+
+s.lower()           # → "hello world"
+s.upper()           # → "HELLO WORLD"
+s.split(" ")        # 按空格切割 → ["Hello", "World"]
+s.replace("l","x")  # → "Hexxo Worxd"
+s.strip()           # 去掉首尾空格
+len(s)              # 长度 → 11
+"ello" in s         # 判断子串 → True
+
+刷题最高频的几个
+pythonlen()          # 几乎每道题都用
+range()        # for 循环必备
+sorted()       # 排序，不修改原数据
+max() / min()  # 最大最小值
+sum()          # 求和
