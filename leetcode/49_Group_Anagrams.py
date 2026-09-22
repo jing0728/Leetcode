@@ -26,7 +26,6 @@ def group_anagrams(words):
         ranked=str(sorted(word))
         map[ranked]=map.get(ranked,[])+[word]
     return list(map.values())
-    pass
 
 print(group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
 # 期望 [['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']]

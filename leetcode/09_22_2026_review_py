@@ -1,0 +1,117 @@
+"""def two_sum(nums, target):
+    count={}
+    for i,num in enumerate(nums):
+        need =target-num
+        if need in count:
+            return [count[need],i]
+        count[num]=i
+
+print(two_sum([2, 7, 11, 15], 9))   # 期望 [0, 1]
+print(two_sum([3, 2, 4], 6))        # 期望 [1, 2]
+print(two_sum([3, 3], 6))           # 期望 [0, 1]
+"""
+
+"""def contains_duplicate(nums):
+    count={}
+    for num in nums:
+        count[num]=count.get(num,0)+1
+        if count[num]>=2:
+            return True
+    return False
+
+print(contains_duplicate([1, 2, 3, 1]))                     # 期望 True
+print(contains_duplicate([1, 2, 3, 4]))                     # 期望 False
+print(contains_duplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]))   # 期望 True
+print(contains_duplicate([]))                               # 期望 False"""
+
+"""def is_anagram(s, t):
+    return sorted(s)==sorted(t)
+
+print(is_anagram("anagram", "nagaram"))   # 期望 True
+print(is_anagram("rat", "car"))           # 期望 False
+print(is_anagram("aacc", "ccac"))         # 期望 False
+print(is_anagram("", ""))                 # 期望 True"""
+
+"""def is_anagram(s, t):
+    count_s={}
+    count_t={}
+    for l in s:
+        count_s[l]=count_s.get(l,0)+1
+    for l in t:
+        count_t[l]=count_t.get(l,0)+1
+    return count_t==count_s
+
+print(is_anagram("anagram", "nagaram"))   # 期望 True
+print(is_anagram("rat", "car"))           # 期望 False
+print(is_anagram("aacc", "ccac"))         # 期望 False
+print(is_anagram("", ""))                 # 期望 True"""
+
+"""def first_unique_char(s):
+    count={}
+    for ch in s:
+        count[ch]=count.get(ch,0)+1
+    for i,ch in enumerate(s):
+        if count[ch]==1:
+            return i
+    return -1
+
+
+print(first_unique_char("leetcode"))      # 期望 0
+print(first_unique_char("loveleetcode"))  # 期望 2
+print(first_unique_char("aabb"))          # 期望 -1
+print(first_unique_char(""))              # 期望 -1"""
+
+"""def majority_element(nums):
+    count={}
+    for num in nums:
+        count[num]=count.get(num,0)+1
+    for num in nums:
+        if count[num]>len(nums)/2:
+            return num
+    pass
+
+print(majority_element([3, 2, 3]))              # 期望 3
+print(majority_element([2, 2, 1, 1, 1, 2, 2]))  # 期望 2
+print(majority_element([5]))                    # 期望 5"""
+
+"""def top_k_frequent(nums, k):
+    count={}
+    ans=[]
+    for num in nums:
+        count[num]=count.get(num,0)+1
+    ranked=sorted(count.items(),key=lambda num:num[1],reverse=True)
+    for num,frq in ranked[:k]:
+        ans.append(num)
+    return ans
+
+
+print(top_k_frequent([1, 1, 1, 2, 2, 3], 2))          # 期望 [1, 2]
+print(top_k_frequent([1], 1))                          # 期望 [1]
+print(top_k_frequent([4, 4, 4, 6, 6, 6, 6, 5], 1))     # 期望 [6]"""
+
+"""def frequency_sort(s):
+    count={}
+    ans=""
+    for ch in s:
+        count[ch]=count.get(ch,0)+1
+    ranked=sorted(count.items(),key=lambda pair:pair[1],reverse=True)
+    for ch,frq in ranked:
+        ans+=(ch*frq)
+    return ans
+
+print(frequency_sort("tree"))     # 期望 eetr 或 eert
+print(frequency_sort("cccaaa"))   # 期望 cccaaa 或 aaaccc
+print(frequency_sort("Aabb"))     # 期望 bbAa 或 bbaA
+print(frequency_sort(""))         # 期望 空字符串"""
+
+def group_anagrams(words):
+    count={}
+    for word in words:
+        ranked =tuple(sorted(word))
+        count[ranked]=count.get(ranked,[])+[word]
+    return list(count.values())
+
+print(group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+# 期望 [['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']]
+print(group_anagrams([""]))     # 期望 [['']]
+print(group_anagrams(["a"]))    # 期望 [['a']]
