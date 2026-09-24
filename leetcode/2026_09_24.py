@@ -99,27 +99,55 @@
 # print(sorted_squares([-5, -3, -2, -1]))
 # # 期望 [1, 4, 9, 25]
 
-def max_area(height):
-    left=0
-    right=len(height)-1
-    ans=[]
-    while left<right:
-        area = min(height[left], height[right]) * (right - left)
-        ans.append(area)
-        if height[left] < height[right]:
-            left += 1
-        else:
-            right -= 1
-    return max(ans)
+# def max_area(height):
+#     left=0
+#     right=len(height)-1
+#     ans=[]
+#     while left<right:
+#         area = min(height[left], height[right]) * (right - left)
+#         ans.append(area)
+#         if height[left] < height[right]:
+#             left += 1
+#         else:
+#             right -= 1
+#     return max(ans)
 
-print(max_area([1,8,6,2,5,4,8,3,7]))
-# 期望 49
+# print(max_area([1,8,6,2,5,4,8,3,7]))
+# # 期望 49
 
-print(max_area([1,1]))
-# 期望 1
+# print(max_area([1,1]))
+# # 期望 1
 
-print(max_area([4,3,2,1,4]))
-# 期望 16
+# print(max_area([4,3,2,1,4]))
+# # 期望 16
 
-print(max_area([1,2,1]))
-# 期望 2
+# print(max_area([1,2,1]))
+# # 期望 2
+
+def three_sum(nums):
+    nums.sort()
+    ans=set()
+    for i in range(len(nums)):
+        left=i+1
+        right=len(nums)-1
+        while left<right:
+            total=nums[i]+nums[left]+nums[right]
+            if total<0:
+                left+=1
+            elif total>0:
+                right-=1
+            else:
+                ans.add((nums[i],nums[left],nums[right]))
+                left+=1
+                right-=1
+    return  [list(x) for x in ans]
+
+
+print(three_sum([-1, 0, 1, 2, -1, -4]))
+# 期望 [[-1, -1, 2], [-1, 0, 1]]
+
+print(three_sum([0, 1, 1]))
+# 期望 []
+
+print(three_sum([0, 0, 0]))
+# 期望 [[0, 0, 0]]
