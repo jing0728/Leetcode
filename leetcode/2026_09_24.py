@@ -124,30 +124,56 @@
 # print(max_area([1,2,1]))
 # # 期望 2
 
-def three_sum(nums):
-    nums.sort()
-    ans=set()
-    for i in range(len(nums)):
-        left=i+1
-        right=len(nums)-1
-        while left<right:
-            total=nums[i]+nums[left]+nums[right]
-            if total<0:
-                left+=1
-            elif total>0:
-                right-=1
-            else:
-                ans.add((nums[i],nums[left],nums[right]))
-                left+=1
-                right-=1
-    return  [list(x) for x in ans]
+# def three_sum(nums):
+#     nums.sort()
+#     ans=set()
+#     for i in range(len(nums)):
+#         left=i+1
+#         right=len(nums)-1
+#         while left<right:
+#             total=nums[i]+nums[left]+nums[right]
+#             if total<0:
+#                 left+=1
+#             elif total>0:
+#                 right-=1
+#             else:
+#                 ans.add((nums[i],nums[left],nums[right]))
+#                 left+=1
+#                 right-=1
+#     return  [list(x) for x in ans]
 
 
-print(three_sum([-1, 0, 1, 2, -1, -4]))
-# 期望 [[-1, -1, 2], [-1, 0, 1]]
+# print(three_sum([-1, 0, 1, 2, -1, -4]))
+# # 期望 [[-1, -1, 2], [-1, 0, 1]]
 
-print(three_sum([0, 1, 1]))
-# 期望 []
+# print(three_sum([0, 1, 1]))
+# # 期望 []
 
-print(three_sum([0, 0, 0]))
-# 期望 [[0, 0, 0]]
+# print(three_sum([0, 0, 0]))
+# # 期望 [[0, 0, 0]]
+
+def remove_duplicates(nums):
+    left=1
+    for right in range(len(nums)):
+        if nums[right]!=nums[right-1]:
+            nums[left]=nums[right]
+            left+=1
+    return left
+
+
+
+nums1 = [1, 1, 2]
+k1 = remove_duplicates(nums1)
+print(k1)
+print(nums1[:k1])
+# 期望：
+# 2
+# [1, 2]
+
+nums2 = [0,0,1,1,1,2,2,3,3,4]
+k2 = remove_duplicates(nums2)
+print(k2)
+print(nums2[:k2])
+# 期望：
+# 5
+# [0, 1, 2, 3, 4]
