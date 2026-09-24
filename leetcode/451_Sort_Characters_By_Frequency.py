@@ -12,3 +12,5 @@ print(frequency_sort("tree"))     # 期望 eetr 或 eert
 print(frequency_sort("cccaaa"))   # 期望 cccaaa 或 aaaccc
 print(frequency_sort("Aabb"))     # 期望 bbAa 或 bbaA
 print(frequency_sort(""))         # 期望 空字符串，屏幕上是一个空行
+
+

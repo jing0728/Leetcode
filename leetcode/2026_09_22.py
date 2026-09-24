@@ -146,7 +146,7 @@ def sorted_squares(nums):
     left=0
     for right in range(len(nums)):
         if abs(nums[right])<abs(nums[left]):
-            nums[left],nums[right]=nums[right],nums[right]
+            nums[left],nums[right]=nums[right],nums[left]
             left+=1
     return nums
 

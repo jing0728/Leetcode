@@ -197,3 +197,23 @@ print(word_pattern("aaaa", "dog cat cat dog"))
 
 print(word_pattern("abba", "dog dog dog dog"))
 # 期望 False
+
+class Solution(object):
+    def wordPattern(self, pattern, s):
+        """
+        :type pattern: str
+        :type s: str
+        :rtype: bool
+        """
+        s=s.split()
+        pattern_to_word={}
+        word_to_pattern={}
+        if len(pattern)!=len(s):
+            return False
+        for a,b in zip(pattern,s):
+            pattern_to_word[a]=pattern_to_word.get(a,b)
+            if pattern_to_word[a]!=b:
+                return False
+            word_to_pattern[b]=word_to_pattern.get(b,a)
+            if word_to_pattern[b]!=a:
+                    return False

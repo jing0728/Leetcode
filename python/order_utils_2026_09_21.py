@@ -1,10 +1,10 @@
-orders = [
+"""orders = [
     "SO1001,Apex Auto,12",
     "SO1002,Brightway,5",
     "SO1003,Apex Auto,8",
     "SO1004,Cornerstone,20",
     "SO1005,Brightway,7",
-]
+]"""
 def parse_order(line):
     so,company,qty=line.split(",")
     return so,company,int(qty)
